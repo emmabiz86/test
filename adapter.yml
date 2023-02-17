@@ -175,10 +175,39 @@ spec:
     - name: v1alpha1
       served: true
       storage: true
-  # Add the stored version to the status field
-  status:
-    storedVersions:
-      - v1alpha1
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                metricName:
+                  type: string
+                value:
+                  type: number
+                timestamp:
+                  type: string
+                  format: date-time
+              required:
+                - metricName
+                - value
+                - timestamp
+            status:
+              type: object
+              properties:
+                observedGeneration:
+                  type: integer
+                metricValue:
+                  type: number
+                timestamp:
+                  type: string
+                  format: date-time
+              required:
+                - observedGeneration
+                - metricValue
+                - timestamp
+
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
