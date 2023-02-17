@@ -166,12 +166,20 @@ metadata:
   name: externalmetrics.metrics.aws
 spec:
   group: metrics.aws
-  version: v1
   names:
     kind: ExternalMetric
     plural: externalmetrics
     singular: externalmetric
   scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+  # Add the stored version to the status field
+  status:
+    storedVersions:
+      - v1alpha1
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
