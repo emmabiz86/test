@@ -166,7 +166,7 @@ metadata:
   name: externalmetrics.metrics.aws
 spec:
   group: metrics.aws
-  version: v1alpha1
+  version: v1
   names:
     kind: ExternalMetric
     plural: externalmetrics
